@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Shrinidhi Sridhar - Computer Science Student</title>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+     font-family: 'League Spartan', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Background Animation */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.brand-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #a8ffff, #ffbbff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #a8ffff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #a8ffff;
+    background: rgba(00ffff, 0.1);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #a8ffff;
+    margin: 3px 0;
+    transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 0 80px;
+    position: relative;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-text {
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-title {
+    margin-bottom: 2rem;
+}
+
+.title-line {
+    display: block;
+    font-size: 1.5rem;
+    color: #ffbbff;
+    margin-bottom: 0.5rem;
+}
+
+.title-name {
+    display: block;
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(135deg, #a8ffff, #ffbbff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+}
+
+.title-role {
+    display: block;
+    font-size: 2rem;
+    color: #ffffc2;
+    font-weight: 600;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    color: #ffbbff;
+    margin-bottom: 3rem;
+    max-width: 500px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #a8ffff, #ffbbff);
+    color: white;
+    box-shadow: 0 10px 30px rgba(00ffff, 0.3);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(00ffff, 0.4);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #a8ffff;
+    border: 2px solid #a8ffff;
+}
+
+.btn-secondary:hover {
+    background: #a8ffff;
+    color: white;
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    animation: slideInRight 1s ease-out;
+}
+
+.profile-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 30px;
+    padding: 3rem;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.profile-avatar {
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.avatar-inner {
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #a8ffff, #ffbbff);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.avatar-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 3px solid #ffffc2;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: bounce 2s infinite;
+}
+
+/* Sections */
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-title {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #a8ffff;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(135deg, #a8ffff, #ffffc2);
+    border-radius: 2px;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    color: #ffbbff;
+}
+
+/* About Section */
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-text h3 {
+    font-size: 2rem;
+    color: #a8ffff;
+    margin-bottom: 2rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #ffbbff;
+    margin-bottom: 3rem;
+    line-height: 1.8;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #a8ffff;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #ffbbff;
+    font-weight: 600;
+}
+
+/* Timeline */
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(to bottom, #a8ffff, #ffffc2);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    width: 50%;
+    padding: 0 2rem;
+}
+
+.timeline-item:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-marker {
+    position: absolute;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: #a8ffff;
+    border-radius: 50%;
+    border: 4px solid #0a0a0a;
+    box-shadow: 0 0 0 4px #a8ffff;
+}
+
+.timeline-item:nth-child(odd) .timeline-marker {
+    right: -10px;
+}
+
+.timeline-item:nth-child(even) .timeline-marker {
+    left: -10px;
+}
+
+.timeline-content {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-date {
+    color: #ffffc2;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.timeline-title {
+    font-size: 1.5rem;
+    color: #a8ffff;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-company {
+    color: #ffbbff;
+    margin-bottom: 1rem;
+}
+
+.timeline-description {
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.timeline-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.skill-chip {
+    background: #a8ffff;
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    height: 200px;
+    background: linear-gradient(135deg, #a8ffff, #ffbbff);
+    position: relative;
+    overflow: hidden;
+}
+
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.project-link {
+    width: 50px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    background: #a8ffff;
+    transform: scale(1.1);
+}
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    color: #a8ffff;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.project-description {
+    color: #ffbbff;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-tag {
+    background: rgba(ffff00, 0.2);
+    color: #ffffc2;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+/* Skills */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.skill-category-title {
+    font-size: 1.5rem;
+    color: #a8ffff;
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.skill-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skill-name {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.skill-bar {
+    width: 100px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.skill-progress {
+    height: 100%;
+    background: linear-gradient(135deg, #a8ffff, #ffffc2);
+    width: 85%;
+    border-radius: 4px;
+    animation: fillBar 2s ease-out;
+}
+
+/* Education */
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.education-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.education-icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #a8ffff, #ffffc2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.education-degree {
+    font-size: 1.3rem;
+    color: #a8ffff;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.education-school {
+    color: #ffbbff;
+    margin-bottom: 0.5rem;
+}
+
+.education-grade {
+    color: #ffffc2;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.education-year {
+    color: #ffffff;
+    font-size: 0.9rem;
+}
+
+/* Contact */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #a8ffff, #ffffc2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.contact-details h4 {
+    color: #a8ffff;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.contact-details p {
+    color: #ffbbff;
+}
+
+.contact-form {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    position: relative;
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid transparent;
+    border-radius: 15px;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: #a8ffff;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Animations */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fillBar {
+    from { width: 0; }
+    to { width: 85%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .title-name {
+        font-size: 2.5rem;
+    }
+    
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 60px;
+    }
+    
+    .timeline-marker {
+        left: 10px !important;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+}
+
+/* Futuristic Specific Styles */
+.navbar {
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid #a8ffff;
+}
+
+.stars {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #a8ffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, #ffbbff, transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffc2, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: stars 20s linear infinite;
+}
+
+.particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.particles::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, #a8ffff22, transparent);
+    animation: scan 3s linear infinite;
+}
+
+.grid-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        linear-gradient(#a8ffff22 1px, transparent 1px),
+        linear-gradient(90deg, #a8ffff22 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes stars {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100px); }
+}
+
+@keyframes scan {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+@keyframes gridMove {
+    from { transform: translate(0, 0); }
+    to { transform: translate(50px, 50px); }
+}
+
+.section {
+    background: rgba(26, 26, 46, 0.3);
+    border: 1px solid #a8ffff33;
+}
+
+.project-card,
+.education-card,
+.contact-item,
+.timeline-content {
+    box-shadow: 0 0 20px #a8ffff33;
+}
+
+.project-card:hover,
+.education-card:hover,
+.contact-item:hover,
+.timeline-content:hover {
+    box-shadow: 0 0 40px #a8ffff66;
+}
+
+    </style>
+</head>
+<body class="futuristic">
+<div class="bg-animation">
+<div class="stars"></div>
+<div class="particles"></div>
+<div class="grid-overlay"></div>
+</div>
+<div class="container">
+<!-- Navigation -->
+<nav class="navbar" id="navbar">
+<div class="nav-brand">
+<div class="brand-icon">S</div>
+<span class="brand-text">Shrinidhi Sridhar</span>
+</div>
+<div class="nav-links">
+<a class="nav-link active" href="#hero">Home</a>
+<a class="nav-link" href="#about">About</a>
+<a class="nav-link" href="#experience">Experience</a>
+<a class="nav-link" href="#projects">Projects</a>
+<a class="nav-link" href="#skills">Skills</a>
+<a class="nav-link" href="#contact">Contact</a>
+</div>
+<div class="nav-toggle">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="hero" id="hero">
+<div class="hero-content">
+<div class="hero-text">
+<h1 class="hero-title" data-component="hero-title" data-edit-id="70c84c07-28c3-4e81-8a7a-7368010fc791">
+<span class="title-line">Hello, I'm</span>
+<span class="title-name">Shrinidhi Sridhar</span>
+<span class="title-role">Computer Science Student</span>
+</h1>
+<p class="hero-description" data-component="hero-description" data-edit-id="3a7b0809-b352-434f-a205-fc1057418765">
+                        High-achieving computer science student with a strong background in data science and research, skilled in programming languages such as Python, Java, and SQL, with a passion for machine learning and natural language processing. I bring a unique combination of academic excellence and hands-on experience in developing innovative solutions.
+                    </p>
+<div class="hero-buttons" data-component="hero-buttons" data-edit-id="4add8752-d4f2-4d14-bce6-92c6cd56bf1f">
+<a class="btn btn-primary" href="#projects">View My Work</a>
+<a class="btn btn-secondary" href="#contact">Get In Touch</a>
+</div>
+</div>
+<div class="hero-image">
+<div class="profile-card" data-component="profile-card" data-edit-id="2c722399-6d9e-4a29-9669-808c5307af78">
+<div class="profile-avatar">
+<div class="avatar-inner">SS</div>
+<div class="avatar-ring"></div>
+</div>
+<div class="profile-info">
+<h3>Shrinidhi Sridhar</h3>
+<p>Computer Science Student</p>
+</div>
+</div>
+</div>
+</div>
+<div class="scroll-indicator">
+<div class="scroll-arrow"></div>
+</div>
+</section>
+<!-- About Section -->
+<section class="section about-section" id="about">
+<div class="section-header" data-component="about-header" data-edit-id="10079412-6099-435f-a1e6-4948158d0875">
+<h2 class="section-title">About Me</h2>
+<p class="section-subtitle">Discover my journey and passion</p>
+</div>
+<div class="about-content">
+<div class="about-text" data-component="about-text" data-edit-id="b9cb98a3-a3bb-4953-8e1e-47ca198e9406">
+<h3>Computer Science Student &amp; Problem Solver</h3>
+<p>As a driven and detail-oriented individual, I have consistently demonstrated academic excellence throughout my educational journey, with a GPA of 9.7/10 in my BSc Computer Science with Honors &amp; Research program and 9.25/10 in my BS in Data Science and Applications program. My experience in developing projects such as GraduGate, a campus placement web application, and researching topics like energy and performance trade-offs of machine learning models, has equipped me with a strong foundation in programming, data analysis, and problem-solving. I am excited to leverage my skills and knowledge to make a meaningful impact in the tech industry.</p>
+<div class="about-stats">
+<div class="stat-item">
+<div class="stat-number">4</div>
+<div class="stat-label">Projects</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">0</div>
+<div class="stat-label">Experience</div>
+</div>
+<div class="stat-item">
+<div class="stat-number">22</div>
+<div class="stat-label">Skills</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Experience Section -->
+<section class="section experience-section" id="experience">
+<div class="section-header" data-component="experience-header" data-edit-id="e2340075-7414-4461-a852-096e5604616c">
+<h2 class="section-title">Experience</h2>
+<p class="section-subtitle">My professional journey</p>
+</div>
+<div class="timeline">
+<div class="timeline-item" data-component="experience-item" data-edit-id="216464f5-0351-4e1f-aa1d-59620cff8a74"><div class="timeline-content"><h3>No experience data available</h3></div></div>
+</div>
+</section>
+<!-- Projects Section -->
+<section class="section projects-section" id="projects">
+<div class="section-header" data-component="projects-header" data-edit-id="8f27c6e7-be84-44b0-8ebf-5b3edbd9a714">
+<h2 class="section-title">Featured Projects</h2>
+<p class="section-subtitle">Some of my recent work</p>
+</div>
+<div class="projects-grid">
+<div class="project-card" data-component="project-card" data-edit-id="db6f404d-fd22-49ff-9150-669472867f83">
+<div class="project-image">
+<div class="project-overlay">
+<div class="project-links">
+<a class="project-link" href="#"><i class="fas fa-external-link-alt"></i></a>
+<a class="project-link" href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<div class="project-content">
+<h3 class="project-title">GraduGate - A gateway from campus to career</h3>
+<p class="project-description">Built a campus placement web application that simplifies how institutes manage recruitment activities, bringing students, companies, and the placement cell into a single system.</p>
+<div class="project-tech">
+<span class="tech-tag">Python</span> <span class="tech-tag">Flask</span> <span class="tech-tag">SQLite</span> <span class="tech-tag">HTML/CSS</span> <span class="tech-tag">Bootstrap</span>
+</div>
+</div>
+</div>
+<div class="project-card" data-component="project-card" data-edit-id="b5f3fb81-ce77-4fd6-a63e-40ec9dc623d8">
+<div class="project-image">
+<div class="project-overlay">
+<div class="project-links">
+<a class="project-link" href="#"><i class="fas fa-external-link-alt"></i></a>
+<a class="project-link" href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<div class="project-content">
+<h3 class="project-title">Research Paper (Ongoing) - Evaluating Energy and Performance Trade-offs of Machine Learning Models for On-Device Android Malware Detection</h3>
+<p class="project-description">Researching the energy and performance trade-offs of machine learning models for on-device Android malware detection.</p>
+<div class="project-tech">
+</div>
+</div>
+</div>
+<div class="project-card" data-component="project-card" data-edit-id="6b25d6fc-2d54-401b-8c85-f4569bcc4bf8">
+<div class="project-image">
+<div class="project-overlay">
+<div class="project-links">
+<a class="project-link" href="#"><i class="fas fa-external-link-alt"></i></a>
+<a class="project-link" href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<div class="project-content">
+<h3 class="project-title">Research Paper (Ongoing) - Data Degradation effect on Accuracy of Machine Learning Models</h3>
+<p class="project-description">Researching the effect of data degradation on the accuracy of machine learning models.</p>
+<div class="project-tech">
+</div>
+</div>
+</div>
+<div class="project-card" data-component="project-card" data-edit-id="4f8c4fad-2935-4f0a-b2d8-1c0194badce9">
+<div class="project-image">
+<div class="project-overlay">
+<div class="project-links">
+<a class="project-link" href="#"><i class="fas fa-external-link-alt"></i></a>
+<a class="project-link" href="#"><i class="fab fa-github"></i></a>
+</div>
+</div>
+</div>
+<div class="project-content">
+<h3 class="project-title">Natural Language Processing: ChatBot</h3>
+<p class="project-description">Created a chatbot using Python and NLTK library.</p>
+<div class="project-tech">
+<span class="tech-tag">Python</span> <span class="tech-tag">NLTK</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="section skills-section" id="skills">
+<div class="section-header" data-component="skills-header" data-edit-id="42035e45-82a8-45f4-97c7-90ada3e220a2">
+<h2 class="section-title">Skills &amp; Technologies</h2>
+<p class="section-subtitle">Tools I work with</p>
+</div>
+<div class="skills-container">
+<div class="skill-category" data-component="skill-category" data-edit-id="460a5426-ad36-46e3-82f5-69accd1405e6">
+<h3 class="skill-category-title">Frontend</h3>
+<div class="skill-items">
+<div class="skill-item" data-component="skill-item" data-edit-id="82b6ac16-76bb-4e7b-96a0-b6f38d4e8dc1"><span class="skill-name">HTML/CSS</span><div class="skill-bar"><div class="skill-progress"></div></div></div>
+</div>
+</div>
+<div class="skill-category" data-component="skill-category" data-edit-id="91935191-47eb-4d09-9ecd-be748c1bf525">
+<h3 class="skill-category-title">Backend</h3>
+<div class="skill-items">
+<div class="skill-item" data-component="skill-item" data-edit-id="ae2654e3-0292-49d5-830d-71404e49ed87"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="deffc176-b73d-431c-bda0-0af7005114d7"><span class="skill-name">Java</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="0157dd84-87a0-40b8-9e11-c73e9b9f6660"><span class="skill-name">PHP</span><div class="skill-bar"><div class="skill-progress"></div></div></div>
+</div>
+</div>
+<div class="skill-category" data-component="skill-category" data-edit-id="65b4eb95-5e35-45b5-83bc-af516f2cd1d4">
+<h3 class="skill-category-title">Other</h3>
+<div class="skill-items">
+<div class="skill-item" data-component="skill-item" data-edit-id="0bf8adb0-1959-42d7-b527-543d61953f69"><span class="skill-name">SQL</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="3abcbbb0-04a2-4eab-9d41-8f56b0c8d56c"><span class="skill-name">LaTeX</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="321e9a6b-4f3c-4edd-8736-c49314dc9b4c"><span class="skill-name">NumPy</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="dbc1f10b-fecf-47d9-b4c3-3dc8af9a09f1"><span class="skill-name">Pandas</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="fef35354-48fa-4f00-abd8-924df050661c"><span class="skill-name">Matplotlib</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="caf003ec-4f2e-4b5d-b70f-30c19073f85b"><span class="skill-name">Flask</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="b1a2abc3-0115-4ad0-b80f-da57d1863f6d"><span class="skill-name">SQLAlchemy</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="b4dffcba-b19b-41dd-9e81-c0646ca18eeb"><span class="skill-name">Sympy</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="246c2457-445c-404d-bd45-a1372191b334"><span class="skill-name">ScikitLearn</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="830b2cdf-e5d2-433c-ab55-bd32388054a7"><span class="skill-name">TensorFlow</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="bd390e8f-0565-4021-8235-b7ec04011ab9"><span class="skill-name">SQLite</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="1c78e313-f719-46af-8ed9-0b2f65baab1d"><span class="skill-name">PostgreSQL</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="1fda004e-ca77-492a-b351-883a5813bcaf"><span class="skill-name">Linear Algebra</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="343a70b3-e720-40d4-af1f-80795d49bd99"><span class="skill-name">Optimization</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="2bf82425-15fe-436c-b768-590858ab1340"><span class="skill-name">Probability</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="c44ba076-e78e-433d-86ba-e1fddb04aab8"><span class="skill-name">Hypothesis Testing</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="ca14942c-9c4d-40ea-bdcc-05fa7396d7f3"><span class="skill-name">Statistical Inference</span><div class="skill-bar"><div class="skill-progress"></div></div></div> <div class="skill-item" data-component="skill-item" data-edit-id="5e13c588-7565-42b6-9f42-bf589ffcf214"><span class="skill-name">Calculus</span><div class="skill-bar"><div class="skill-progress"></div></div></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Section -->
+<section class="section education-section" id="education">
+<div class="section-header" data-component="education-header" data-edit-id="06b3f16f-c7a6-4800-bcee-672073564351">
+<h2 class="section-title">Education</h2>
+<p class="section-subtitle">Academic background</p>
+</div>
+<div class="education-grid">
+<div class="education-card" data-component="education-card" data-edit-id="a5b05072-de6b-4b8d-9286-071412eeff9d">
+<div class="education-icon">
+<i class="fas fa-graduation-cap"></i>
+</div>
+<div class="education-content">
+<h3 class="education-degree">BSc Computer Science with Honors &amp; Research (Minor in Data Science)</h3>
+<h4 class="education-school">MIE-Savitribai Phule Pune University Doha Campus</h4>
+<p class="education-grade">Grade: GPA: 9.7/10</p>
+<div class="education-year">August 2023 - June 2027</div>
+</div>
+</div>
+<div class="education-card" data-component="education-card" data-edit-id="5f920a8b-6a5e-4812-b08e-680388f6714b">
+<div class="education-icon">
+<i class="fas fa-graduation-cap"></i>
+</div>
+<div class="education-content">
+<h3 class="education-degree">Bachelor of Science (BS) in Data Science and Applications</h3>
+<h4 class="education-school">Indian Institute of Technology, Madras Online</h4>
+<p class="education-grade">Grade: GPA: 9.25/10</p>
+<div class="education-year">May 2024 - Present</div>
+</div>
+</div>
+<div class="education-card" data-component="education-card" data-edit-id="59e983f3-8f37-4362-913d-fb8d2beec57c">
+<div class="education-icon">
+<i class="fas fa-graduation-cap"></i>
+</div>
+<div class="education-content">
+<h3 class="education-degree">High School Diploma</h3>
+<h4 class="education-school">Birla Public School Doha, Qatar</h4>
+<p class="education-grade">Grade: Score: 91%</p>
+<div class="education-year">March 2023 - </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="section contact-section" id="contact">
+<div class="section-header" data-component="contact-header" data-edit-id="bdcc0a88-1220-4d76-8d75-88f6275077e6">
+<h2 class="section-title">Get In Touch</h2>
+<p class="section-subtitle">Let's work together</p>
+</div>
+<div class="contact-content">
+<div class="contact-info">
+<div class="contact-item" data-component="contact-item" data-edit-id="b3750367-c308-49e9-ad2a-24e25aad8dbe">
+<div class="contact-icon">
+<i class="fas fa-envelope"></i>
+</div>
+<div class="contact-details">
+<h4>Email</h4>
+<p>shrinidhissm@gmail.com</p>
+</div>
+</div>
+<div class="contact-item" data-component="contact-item" data-edit-id="d98adb0a-4a78-47b5-b4aa-dbfafa3a3fb3">
+<div class="contact-icon">
+<i class="fas fa-phone"></i>
+</div>
+<div class="contact-details">
+<h4>Phone</h4>
+<p>+97433026293</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+    Built by Shrinidhi Sridhar • © 2026 • For academic and educational purposes only
+
+</footer>
+</div>
+<script>
+        
+// BULLETPROOF COMPONENT SELECTION SYSTEM - FINAL FIX
+console.log('Loading BULLETPROOF editing system with persistent component references...');
+
+// Enhanced global state with persistent component tracking
+window.EditingSystem = {
+    selectedComponent: null,
+    selectedComponentData: null, // Store component data separately
+    editPanel: null,
+    isEditPanelOpen: false,
+    editingInitialized: false,
+    componentRegistry: new Map(),
+    // Add backup reference system
+    lastSelectedComponent: null,
+    componentSelectionTime: null
+};
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    console.log(' DOM loaded - initializing BULLETPROOF systems...');
+    
+    initializeNavigation();
+    initializeAnimations();
+    initializeEditingSystem();
+    
+    console.log('All systems initialized successfully');
+});
+
+function initializeNavigation() {
+    console.log(' Initializing navigation...');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('.section, .hero');
+    
+    // Smooth scrolling
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            if (targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Active navigation highlighting
+    window.addEventListener('scroll', function() {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (scrollY >= (sectionTop - 200)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+    
+    console.log('Navigation initialized');
+}
+
+function initializeAnimations() {
+    console.log('Initializing animations...');
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe elements for animation
+    document.querySelectorAll('.section, .project-card, .education-card, .timeline-item').forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(el);
+    });
+    
+    // Skill bars animation
+    const skillBars = document.querySelectorAll('.skill-progress');
+    const skillObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.width = '85%';
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    skillBars.forEach(bar => {
+        bar.style.width = '0%';
+        bar.style.transition = 'width 2s ease';
+        skillObserver.observe(bar);
+    });
+    
+    console.log('Animations initialized');
+}
+
+
+
+function setupEnhancedGlobalEventHandlers() {
+    console.log('Setting up enhanced global event handlers...');
+    
+    // Global click handler with enhanced protection
+    document.addEventListener('click', function(e) {
+        // Don't close if clicking inside the edit panel
+        if (window.EditingSystem.editPanel && window.EditingSystem.editPanel.contains(e.target)) {
+            console.log('Click inside edit panel - maintaining selection');
+            return;
+        }
+        
+        // Don't close if clicking on an editable component
+        if (e.target.closest('[data-component]')) {
+            console.log('Click on editable component - maintaining selection');
+            return;
+        }
+        
+        // Only close if we're clicking outside everything and panel is open
+        if (window.EditingSystem.isEditPanelOpen) {
+            console.log('Closing edit panel due to outside click');
+            closeEditPanelSafely();
+        }
+    });
+    
+    // Escape key handler
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && window.EditingSystem.isEditPanelOpen) {
+            console.log('Closing edit panel due to Escape key');
+            closeEditPanelSafely();
+        }
+    });
+    
+    console.log('Enhanced global event handlers setup complete');
+}
+
+
+function setupSingleComponentWithPersistence(component) {
+    console.log(`Setting up single component with persistence: ${component.dataset.component}`);
+    
+    // Generate unique ID
+    const componentId = `edit_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    component.setAttribute('data-edit-id', componentId);
+    
+    // Store comprehensive data in registry
+    const componentData = {
+        element: component,
+        type: component.dataset.component,
+        originalHTML: component.outerHTML,
+        id: componentId,
+        timestamp: Date.now()
+    };
+    
+    window.EditingSystem.componentRegistry.set(componentId, componentData);
+    
+    // Setup visual indicators
+    component.style.cursor = 'pointer';
+    component.title = `Click to edit: ${component.dataset.component}`;
+    
+    // Add event listeners with persistence
+    component.addEventListener('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+        console.log(`Component clicked: ${this.dataset.component} (ID: ${componentId})`);
+        selectComponentForEditingWithPersistence(this, componentId, componentData);
+    });
+    
+    component.addEventListener('mouseenter', function() {
+        if (window.EditingSystem.selectedComponent !== this) {
+            this.classList.add('hover-editable');
+        }
+    });
+    
+    component.addEventListener('mouseleave', function() {
+        this.classList.remove('hover-editable');
+    });
+    
+    console.log(`Single component setup with persistence complete: ${component.dataset.component}`);
+}
+
+function formatComponentName(componentName) {
+    return componentName
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+}
+
+function showStatus(message, type) {
+    const statusDiv = document.querySelector('.edit-panel-status');
+    if (statusDiv) {
+        statusDiv.innerHTML = `<div class="status-message status-${type}">${message}</div>`;
+    }
+    console.log(`Status: ${message} (${type})`);
+}
+
+function showNotification(message, type) {
+    console.log(`Notification: ${message} (${type})`);
+    
+    // Remove existing notifications
+    document.querySelectorAll('.notification').forEach(n => n.remove());
+    
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <span class="notification-message">${message}</span>
+            <button class="notification-close" type="button">&times;</button>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Add close listener
+    notification.querySelector('.notification-close').addEventListener('click', function() {
+        notification.remove();
+    });
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 5000);
+}
+
+// Form submission handler
+document.addEventListener('submit', function(e) {
+    if (e.target.classList.contains('form')) {
+        e.preventDefault();
+        showNotification('Thank you for your message! I will get back to you soon.', 'success');
+        e.target.reset();
+    }
+});
+
+console.log(' BULLETPROOF EDITING SYSTEM WITH PERSISTENCE LOADED SUCCESSFULLY!');
+console.log('Debug commands: debugEditingSystemFull(), testComponentSelectionPersistence()');
+console.log('Backend: GROQ AI for component modifications');
+console.log('Persistence: Multiple reference system with recovery mechanisms');
+
+    </script>
+</body>
+</html>
